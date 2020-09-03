@@ -155,8 +155,10 @@ export const submitRegister = () => (dispatch, getState) => {
                 dispatch({ type: REQUEST_FORM_SUCCESS })
                 dispatch(setUser(user));
                 dispatch(setRoute('home'));
-            } else {
-                alert('Wrong email and password combination.');
+            } else if (user === 'duplicate') {
+                alert('Your email has been registered');
+            } else if (user === 'blank') {
+                alert('Can not register with any empty blank.')
             }
         })
         .catch(err => {
