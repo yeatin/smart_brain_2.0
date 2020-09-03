@@ -64,7 +64,7 @@ export const searchImgBoxes = (state = initialStateUrl, action = {}) => {
 const initialStateCount = {
     isPending: false,
     user: { entries: 0 },
-    error :''
+    error: ''
 }
 export const searchImgCount = (state = initialStateCount, action = {}) => {
     switch (action.type) {
@@ -102,12 +102,12 @@ const initailStateRoute = {
 export const changeRoute = (state = initailStateRoute, action = {}) => {
     switch (action.type) {
         case CHANGE_ROUTE:
-            if (action.payload.route === 'signout') {
-                return Object.assign({}, state, { initailStateRoute });
-            } else if (action.payload.route === 'home') {
-                return Object.assign({}, state, { isSignedIn: true });
+            if (action.payload === 'signout') {
+                return Object.assign({}, state, { initailStateRoute, route: action.payload });
+            } else if (action.payload === 'home') {
+                return Object.assign({}, state, { isSignedIn: true, route: action.payload });
             }
-            return Object.assign({}, state, { route: action.payload });
+            break
         default:
             return state;
     }
@@ -146,7 +146,6 @@ const initialStateSignin = {
 export const changeSignin = (state = initialStateSignin, action = {}) => {
     switch (action.type) {
         case CHANGE_EMAIL:
-            console.log('type', action.payload)
             return Object.assign({}, state, {
                 signinEmail: action.payload
             });
@@ -202,7 +201,7 @@ export const submitForm = (state = initialStateSubmitForm, action = {}) => {
         case REQUEST_FORM_FAIL:
             return Object.assign({}, state, {
                 isPending: false,
-                error : action.payload
+                error: action.payload
             })
         default:
             return state;
