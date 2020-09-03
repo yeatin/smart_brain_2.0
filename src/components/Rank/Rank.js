@@ -11,10 +11,11 @@ const Rank = ({ name, entries, boxes }) => {
             </div>
             <div className='pt1 white f3'>
                 {
-                    boxes.length === 1 
-                    ? `${boxes.length} face found in the picture`
-                    : `${boxes.length} faces found in the picture`
-
+                    boxes
+                        ? boxes.length === 1
+                            ? `${boxes.length} face found in the picture`
+                            : `${boxes.length} faces found in the picture`
+                        : '0 faces found in the picture'
                 }
             </div>
         </div>

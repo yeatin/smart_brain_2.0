@@ -86,28 +86,17 @@ export const searchImgCount = (state = initialStateCount, action = {}) => {
 }
 
 const initailStateRoute = {
-    input: '',
-    imageUrl: '',
-    boxes: [],
     route: 'signin',
     isSignedIn: false,
-    user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-    }
 }
 export const changeRoute = (state = initailStateRoute, action = {}) => {
     switch (action.type) {
         case CHANGE_ROUTE:
             if (action.payload === 'signout') {
-                return Object.assign({}, state, { initailStateRoute, route: action.payload });
+                return Object.assign({}, state, { route: action.payload, isSignedIn: false });
             } else if (action.payload === 'home') {
                 return Object.assign({}, state, { isSignedIn: true, route: action.payload });
-            }
-            break
+            } else { return Object.assign({}, state, { route: action.payload }) }
         default:
             return state;
     }

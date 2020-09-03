@@ -104,7 +104,7 @@ class App extends Component {
               route === 'signin'
                 ? <div>
                   <Navigation onRouteChange={onRouteChange} isSignedIn={isSignedIn} />
-                  <SignIn />
+                  <SignIn onRouteChange={onRouteChange} />
                 </div>
                 : <div>
                   <Navigation onRouteChange={onRouteChange} isSignedIn={isSignedIn} />
